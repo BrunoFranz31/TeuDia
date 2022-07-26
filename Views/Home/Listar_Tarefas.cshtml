@@ -1,0 +1,46 @@
+@using Microsoft.AspNetCore.Http;
+@model IEnumerable<Tarefas>
+@{
+
+
+
+  ViewData["Title"] = "Listagem de Compromissos";
+}
+
+<main class="fundo-color" style="min-height: 100vh;">
+  <div class="usuarios-content">
+    <div>
+      <h3 class="titulos">LISTAGEM DE COMPROMISSOS</h3>
+
+      <div class="table-content">
+
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scioe="col">ID</th>
+              <th scope="col">TAREFA</th>
+              <th scope="col">HORARIO</th>
+              <th scope="col">DESCRIÇÃO</th>
+              <th scope="col"></th>
+
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (Tarefas c in Model){
+              
+              <tr>
+                <th scope="row">@c.id_tarefa</th>
+                <td>@c.tarefa</td>
+                <td>@c.horario</td>
+                <td>@c.descricao</td>
+                <td><a href="/Home/Excluir_Compromisso?id_tarefa=@c.id_tarefa"><img class="icones-content">EXCLUIR</a>
+
+              </tr>}
+          </tbody>
+        </table>
+
+
+      </div>
+
+    </div>
+</main>

@@ -20,7 +20,7 @@ namespace Bruno___SENAC.Controllers
         }
 
         public IActionResult Index()
-        {
+{
             return View();
         }
 
@@ -29,10 +29,49 @@ namespace Bruno___SENAC.Controllers
             return View();
         }
 
-        public IActionResult Tarefas()
-        {
-            return View();
+
+
+
+
+                /*TAREFAS*/
+            public IActionResult Tarefas(){  
+            
+            UsuarioRepository ur = new UsuarioRepository();
+            List<Tarefas> compromisso = ur.Listar_Tarefas();
+            return View(compromisso);}
+
+        /*LISTAGEM DE TAREFAS*/
+         public IActionResult Listar_Tarefas(){
+          
+          UsuarioRepository ur = new UsuarioRepository();
+          
+          List<Tarefas> listagem = ur.Listar_Tarefas();
+          
+          return View(listagem);}
+
+
+        /*EXCLUSÃO DE PACOTES*/
+        [HttpGet]
+        public IActionResult Excluir_Tarefas(int id_tarefa){
+
+            UsuarioRepository ur = new UsuarioRepository();
+
+            ur.Excluir_T(id_tarefa);
+            
+            return RedirectToAction("Agendando");
         }
+
+        [HttpGet]
+        public IActionResult Excluir_Compromisso(int id_tarefa){
+
+            UsuarioRepository ur = new UsuarioRepository();
+
+            ur.Excluir_T(id_tarefa);
+            
+            return RedirectToAction("Listar_Tarefas");
+        }
+
+    // LOGIN
 
         public IActionResult Login()
         {
@@ -40,8 +79,7 @@ namespace Bruno___SENAC.Controllers
         }
 
         [HttpPost]
-          public IActionResult Login(Usuario user)
-        {   
+          public IActionResult Login(Usuario user){   
             UsuarioRepository ur = new UsuarioRepository();
             Usuario usuario = ur.Login(user); 
             
@@ -52,17 +90,25 @@ namespace Bruno___SENAC.Controllers
             HttpContext.Session.SetString("senha", usuario.senha);
 
             ViewBag.Sucesso = "Login realizado com sucesso!";
-
-            }
+            
+            return View("Views/Home/Agendando.cshtml");}
 
             else{
-                ViewBag.Sucesso = "Falha no acesso";
-            }
+                ViewBag.Sucesso = "Falha no acesso";}
 
-            return View();
-        }
+            return View();}
 
-       
+
+
+        [HttpPost]  
+         public IActionResult Agendando(Tarefas compromisso){   
+            UsuarioRepository ur = new UsuarioRepository();
+            ur.Insert_Tarefas(compromisso);
+            ViewBag.Cadastro = "Compromisso agendado com sucesso!";
+
+            return View();}
+
+
 
     }
 }

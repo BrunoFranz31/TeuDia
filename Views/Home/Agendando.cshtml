@@ -1,6 +1,7 @@
+@using Microsoft.AspNetCore.Http;
 @model Tarefas
 
-<form method="post" asp-action="salvar tarefa">
+<form method="post" asp-action="Agendando">
 <h3>Olá, é muito bom ver você de novo.</h3>
     <p>
         <label>Sua tarefa</label>
@@ -19,5 +20,8 @@
     </p>
         <br>
     <input type="submit" value="ADICIONAR TAREFA">
+    <p class="mensagem-style">@ViewBag.Cadastro</p>
     
 </form>
+
+<a asp-controller="Home" asp-action="Listar_Tarefas">VEJA SEUS COMPROMISSOS</a>

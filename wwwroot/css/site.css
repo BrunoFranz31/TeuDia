@@ -24,6 +24,19 @@ a {
   border-color: #1861ac;
 }
 
+.table-content {
+  height: auto;
+  width: 100%;
+  margin: 30px 0px;
+}
+
+@media screen and (max-width: 580px) {
+  .table-content {
+    overflow-x: scroll;
+    justify-content: flex-start;
+  }
+}
+
 /*MENSAGENS DE VIEWBAGS*/
 
 .mensagem-style {
