@@ -1,0 +1,31 @@
+@model Usuario
+@{
+
+
+
+    ViewData["Title"] = "Login";
+}
+
+<div class="fundo-color">
+
+
+    <div class="login-content">
+        <div>
+            <h3 class="titulos">ENTRE COM SUA CONTA</h3>
+        </div>
+        <form class="form-style" action="Login" method="POST">
+            <label class="label-style" asp-for="login">Login:</label>
+            <input class="input-style" asp-for="login" name="login" placeholder="Seu login" required>
+            <label class="label-style" asp-for="senha">Senha:</label>
+            <input class="input-style" type="password" asp-for="senha" name="senha" placeholder="Sua senha" required>
+            <input type="submit" value="Acessar" class="input-button">
+            <p class="mensagem-style">@ViewBag.Sucesso</p>
+        </form>
+    </div>
+
+
+
+</div>
+
+
+</div>

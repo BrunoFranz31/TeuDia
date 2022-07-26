@@ -1,0 +1,23 @@
+@model Tarefas
+
+<form method="post" asp-action="salvar tarefa">
+<h3>Olá, é muito bom ver você de novo.</h3>
+    <p>
+        <label>Sua tarefa</label>
+        <br>
+        <input asp-for="tarefa">
+    </p>
+    <p>
+        <label>Em que horário?</label>
+        <br>
+        <input asp-for="horario">
+    </p>
+    <p>
+        <label>Descrição:</label>
+        <br>
+        <input asp-for="descricao">
+    </p>
+        <br>
+    <input type="submit" value="ADICIONAR TAREFA">
+    
+</form>
