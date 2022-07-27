@@ -14,15 +14,20 @@
             <h3 class="titulos">ENTRE COM SUA CONTA</h3>
         </div>
         <form class="form-style" action="Login" method="POST">
+            <br>
             <label class="label-style" asp-for="login">Login:</label>
             <br>
             <input class="input-style" asp-for="login" name="login" placeholder="Seu login" required>
+            <br>
+            <br>
             <br>
             <label class="label-style" asp-for="senha">Senha:</label>
             <br>
             <input class="input-style" type="password" asp-for="senha" name="senha" placeholder="Sua senha" required>
             <br>
+            <br>
             <input type="submit" value="Acessar" class="input-button">
+            <br>
             <p class="mensagem-style">@ViewBag.Sucesso</p>
         </form>
     </div>
